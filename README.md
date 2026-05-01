@@ -110,23 +110,6 @@ curl -X POST http://localhost:8000/score \
 | `email_ctr` | Click-through rate — campaign receptiveness |
 | `payment_recency_flag` | Late payment signal |
 
----
-
-## 💼 Resume Bullet Points
-
-- Built an **end-to-end churn prediction system** achieving **ROC-AUC 0.89** and **3.5× Lift@10%** using XGBoost + isotonic calibration on 5,000 synthetic customers
-- Engineered **30+ business features** (engagement rate, support intensity, price-to-tenure) from raw billing, usage, and support data
-- Deployed a **FastAPI microservice** with `/score`, `/explain`, `/batch` endpoints and a **Streamlit analytics dashboard** with dark/light theme
-- Implemented **SHAP explainability** to surface top churn drivers and generate automated retention action recommendations
-
----
-
-## 🐳 Docker Deployment
-
-```bash
-docker build -t churnguard-api .
-docker run -p 8000:8000 churnguard-api
-
 
 ## 🌍 Real-World Applications
 
