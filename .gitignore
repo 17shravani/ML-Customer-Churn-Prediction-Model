@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+env/
+*.joblib
+*.pkl
+data/*.parquet
+data/*.csv
+outputs/
+images/
+models/
+.DS_Store
+*.log
