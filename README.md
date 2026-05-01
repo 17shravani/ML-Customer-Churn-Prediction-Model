@@ -57,66 +57,10 @@ XGBoost → Isotonic Calibration
 | 📦 **Segments** | Low / Medium / High / Critical risk tiers |
 | 💡 **Actions** | Automated retention recommendation engine |
 
----
 
-## 📁 Folder Structure
-
-```
-ML-Customer Churn Prediction Model/
-│
-├── data/
-│   └── generate_data.py      ← Synthetic dataset generator
-├── src/
-│   ├── features.py           ← Feature engineering (30+ features)
-│   └── pipeline.py           ← ColumnTransformer preprocessor
-├── serving/
-│   └── app.py                ← FastAPI scoring microservice
-├── models/                   ← Saved model artifacts (auto-created)
-├── outputs/                  ← Predictions & metrics JSON (auto-created)
-├── images/                   ← Evaluation plots (auto-created)
-├── train.py                  ← Full training pipeline
-├── dashboard.py              ← Streamlit analytics dashboard
-├── main.py                   ← CLI entry point
-├── requirements.txt
 ├── Dockerfile
 └── README.md
 ```
-
----
-
-## 🚀 Quick Start
-
-### 1. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Generate Data
-```bash
-python data/generate_data.py
-```
-
-### 3. Train Model
-```bash
-python train.py
-```
-
-### 4. Launch Dashboard
-```bash
-streamlit run dashboard.py
-```
-
-### 5. Launch API
-```bash
-uvicorn serving.app:app --reload --port 8000
-```
-
-### OR — Run Everything via CLI
-```bash
-python main.py
-```
-
----
 
 ## 📡 API Endpoints
 
@@ -182,22 +126,7 @@ curl -X POST http://localhost:8000/score \
 ```bash
 docker build -t churnguard-api .
 docker run -p 8000:8000 churnguard-api
-```
 
----
-
-## 📚 Interview Q&A
-
-**Q: Why XGBoost over Logistic Regression?**
-> XGBoost handles non-linear interactions (e.g., low engagement × high price) that LR misses. Isotonic calibration ensures probabilities are reliable for top-K ranking.
-
-**Q: How did you handle class imbalance?**
-> Used `scale_pos_weight` in XGBoost + stratified time-based splits. Also evaluated PR-AUC (imbalance-robust) over accuracy.
-
-**Q: What is Lift@10%?**
-> How many times more churners appear in the top 10% scored customers vs. random selection. A lift of 3.5× means the model is 3.5× better than chance.
-
----
 
 ## 🌍 Real-World Applications
 
@@ -206,6 +135,3 @@ docker run -p 8000:8000 churnguard-api
 - **OTT/Streaming**: Lapsed viewer re-engagement
 - **Fintech**: Loan app inactivity / account closure
 
----
-
-*Built with ❤️ as an industry-grade portfolio project.*
